@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import Container from "@/components/common/Container";
 
 const navLinks = [
   { name: "HOME", dropdown: false },
@@ -12,7 +13,7 @@ const navLinks = [
 export default function Navigation() {
   return (
     <nav className="border-b border-gray-200 bg-white">
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-center gap-10">
+      <Container className="flex h-14 items-center justify-center gap-10">
         {navLinks.map((item) => (
           <button
             key={item.name}
@@ -28,7 +29,7 @@ export default function Navigation() {
             )}
           </button>
         ))}
-      </div>
+      </Container>
     </nav>
   );
 }
