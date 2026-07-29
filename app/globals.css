@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
+/* =========================
+   ASHIRWAD GEMS DESIGN SYSTEM
+========================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds */
+  --background: #f8fafc;
+  --surface: #ffffff;
+
+  /* Text */
+  --foreground: #0f172a;
+  --muted: #475569;
+
+  /* Brand Colors */
+  --primary: #d4af37; /* Luxury Gold */
+  --secondary: #10b981; /* Emerald */
+  --accent: #1e293b;
+
+  /* Borders */
+  --border: #e2e8f0;
+
+  /* Fonts (we'll replace these later) */
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --color-border: var(--border);
+
+  --font-sans: var(--font-sans);
 }
 
+/* Dark Theme */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #020617;
+    --surface: #0f172a;
+
+    --foreground: #f8fafc;
+    --muted: #cbd5e1;
+
+    --border: #1e293b;
   }
 }
 
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
