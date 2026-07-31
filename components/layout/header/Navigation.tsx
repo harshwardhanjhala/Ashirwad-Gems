@@ -12,12 +12,12 @@ const navLinks = [
 
 export default function Navigation() {
   return (
-    <nav className="border-b border-gray-200 bg-white">
+    <nav className=" bg-#020617">
       <Container className="flex h-14 items-center justify-center gap-10">
         {navLinks.map((item) => (
           <button
             key={item.name}
-            className="group flex items-center gap-1 text-sm font-medium tracking-wide text-gray-700 transition-all duration-300 hover:text-[#D4AF37]"
+            className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37]"
           >
             {item.name}
 

@@ -17,7 +17,7 @@ const actions = [
 
 export default function MainHeader() {
   return (
-    <div className="border-b border-gray-200 bg-white">
+    <div className=" bg-#020617">
       <Container className="py-6">
 
         <div className="grid grid-cols-3 items-center">
@@ -38,7 +38,7 @@ export default function MainHeader() {
               return (
                 <button
                   key={item.label}
-                  className="group flex flex-col items-center text-gray-700 transition-all duration-300 hover:text-[#D4AF37]"
+                  className="group flex flex-col items-center text-white transition-all duration-300 hover:text-[#D4AF37]"
                 >
                   <Icon
                     size={22}
