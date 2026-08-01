@@ -3,6 +3,7 @@ import {
   User,
   Heart,
   ShoppingCart,
+  ChevronDown,
 } from "lucide-react";
 
 import Logo from "@/components/common/Logo";
@@ -15,45 +16,68 @@ const actions = [
   { icon: ShoppingCart, label: "Cart" },
 ];
 
+const navLinks = [
+  { name: "HOME", dropdown: false },
+  { name: "GEMSTONES", dropdown: true },
+  { name: "BIRTHSTONES", dropdown: true },
+  { name: "GEM SUGGESTIONS", dropdown: false },
+  { name: "ABOUT US", dropdown: false },
+  { name: "CONTACT", dropdown: false },
+];
+
 export default function MainHeader() {
   return (
-    <div className=" bg-#020617">
-      <Container className="py-6">
+    <div className="absolute top-0 left-0 w-full z-50">
+      <Container className="flex items-center justify-between py-5">
 
-        <div className="grid grid-cols-3 items-center">
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <Logo />
+        </div>
 
-          {/* Left */}
-          <div className="flex justify-start">
-            <Logo />
-          </div>
+        {/* Navigation */}
+        <nav className="flex flex-1 justify-center">
+          <div className="flex items-center gap-10">
+            {navLinks.map((item) => (
+              <button
+                key={item.name}
+                className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37]"
+              >
+                {item.name}
 
-          {/* Center */}
-          <div />
-
-          {/* Right */}
-          <div className="flex justify-end gap-8">
-            {actions.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <button
-                  key={item.label}
-                  className="group flex flex-col items-center text-white transition-all duration-300 hover:text-[#D4AF37]"
-                >
-                  <Icon
-                    size={22}
-                    strokeWidth={1.8}
-                    className="transition-transform duration-300 group-hover:scale-110"
+                {item.dropdown && (
+                  <ChevronDown
+                    size={16}
+                    className="transition-transform duration-300 group-hover:rotate-180"
                   />
-
-                  <span className="mt-1 text-xs font-medium tracking-wide">
-                    {item.label}
-                  </span>
-                </button>
-              );
-            })}
+                )}
+              </button>
+            ))}
           </div>
+        </nav>
 
+        {/* Icons */}
+        <div className="flex flex-shrink-0 items-center gap-8">
+          {actions.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <button
+                key={item.label}
+                className="group flex flex-col items-center text-white transition-all duration-300 hover:text-[#D4AF37]"
+              >
+                <Icon
+                  size={22}
+                  strokeWidth={1.8}
+                  className="transition-transform duration-300 group-hover:scale-110"
+                />
+
+                <span className="mt-1 text-xs font-medium tracking-wide">
+                  {item.label}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
       </Container>

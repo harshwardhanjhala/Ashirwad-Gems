@@ -12,7 +12,7 @@ const navLinks = [
 
 export default function Navigation() {
   return (
-    <nav className=" bg-#020617">
+    <nav className="bg-transparent">
       <Container className="flex h-14 items-center justify-center gap-10">
         {navLinks.map((item) => (
           <button

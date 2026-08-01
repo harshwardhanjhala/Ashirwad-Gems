@@ -5,8 +5,8 @@ export default function Logo() {
     <Image
       src="/images/logo/logo-v2.png"
       alt="Ashirwad Gems"
-      width={200}
-      height={100}
+      width={150}
+      height={75}
       priority
       className="h-auto w-auto"
     />

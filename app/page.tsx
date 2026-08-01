@@ -1,15 +1,20 @@
 import Header from "@/components/layout/header/Header";
+import Hero from "@/components/home/Hero";
 
 export default function Home() {
   return (
     <>
       <Header />
 
-      <main className="flex min-h-screen items-center justify-center">
-        <h1 className="text-5xl font-bold">
-          Hero Section Coming Soon...
-        </h1>
-      </main>
+      <Hero />
+
+      <section className="min-h-screen bg-white">
+        <div className="mx-auto max-w-7xl py-32 text-center">
+          <h2 className="text-5xl font-bold">
+            Featured Gemstones
+          </h2>
+        </div>
+      </section>
     </>
   );
 }
