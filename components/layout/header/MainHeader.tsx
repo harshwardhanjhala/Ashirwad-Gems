@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import {
   Search,
   User,
@@ -8,6 +12,7 @@ import {
 
 import Logo from "@/components/common/Logo";
 import Container from "@/components/common/Container";
+import MegaMenu from "@/components/layout/header/MegaMenu";
 
 const actions = [
   { icon: Search, label: "Search" },
@@ -26,8 +31,12 @@ const navLinks = [
 ];
 
 export default function MainHeader() {
+  const [showMegaMenu, setShowMegaMenu] = useState(false);
   return (
-    <div className="absolute top-0 left-0 w-full z-50">
+    <div
+      className="absolute top-0 left-0 w-full z-50"
+      onMouseLeave={() => setShowMegaMenu(false)}
+    >
       <Container className="flex items-center justify-between py-5">
 
         {/* Logo */}
@@ -36,28 +45,47 @@ export default function MainHeader() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex flex-1 justify-center">
+        <nav
+          className="mx-auto flex justify-center"
+        >
           <div className="flex items-center gap-10">
             {navLinks.map((item) => (
-              <button
+              <div
                 key={item.name}
-                className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37]"
+                className="relative"
+                onMouseEnter={() => {
+                  if (item.name === "GEMSTONES") {
+                    setShowMegaMenu(true);
+                  }
+                }}
               >
-                {item.name}
-
-                {item.dropdown && (
-                  <ChevronDown
-                    size={16}
-                    className="transition-transform duration-300 group-hover:rotate-180"
+                <button
+                  className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37]"
+                >
+                  {item.name}
+        
+                  {item.dropdown && (
+                    <ChevronDown
+                      size={16}
+                      className="transition-transform duration-300 group-hover:rotate-180"
+                    />
+                  )}
+                </button>
+        
+                {/* {item.name === "GEMSTONES" && (
+                  <MegaMenu
+                    isOpen={showMegaMenu}
+                    setIsOpen={setShowMegaMenu}
                   />
-                )}
-              </button>
+                )} */}
+
+              </div>
             ))}
           </div>
         </nav>
 
         {/* Icons */}
-        <div className="flex flex-shrink-0 items-center gap-8">
+        <div className="ml-16 flex flex-shrink-0 items-center gap-8">
           {actions.map((item) => {
             const Icon = item.icon;
 
@@ -81,6 +109,12 @@ export default function MainHeader() {
         </div>
 
       </Container>
+
+      <MegaMenu
+        isOpen={showMegaMenu}
+        setIsOpen={setShowMegaMenu}
+      />
+
     </div>
   );
 }
