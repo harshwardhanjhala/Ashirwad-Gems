@@ -52,13 +52,13 @@ export default function AboutSection() {
           {/* RIGHT */}
           <div className="mx-auto max-w-[700px]">
 
-            <h3 className="text-5xl font-semibold leading-tight text-white">
+            <h3 className="text-2xl font-semibold leading-tight text-white">
               Authentic Precious Gemstones
               <br />
               Trusted Across Generations
             </h3>
 
-            <p className="mt-10 text-lg leading-10 text-slate-300">
+            <p className="mt-10 text-md leading-10 text-slate-300">
               Ashirwad Precious Gems specializes in offering original,
               natural, and certified precious gemstones sourced with the
               highest standards of quality. Our collection includes Ruby,
@@ -66,7 +66,7 @@ export default function AboutSection() {
               Cat&apos;s Eye, Hessonite, and many other rare gemstones.
             </p>
 
-            <p className="mt-8 text-lg leading-10 text-slate-300">
+            <p className="mt-8 text-md leading-10 text-slate-300">
               Whether you are searching for gemstones for fine jewellery,
               investment, or astrological purposes, every stone is carefully
               examined to ensure authenticity, brilliance, and lasting value.
