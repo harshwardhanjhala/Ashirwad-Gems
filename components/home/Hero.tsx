@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <section
-      className="relative h-screen bg-fixed bg-center bg-cover"
+      className="relative h-[100vh] bg-fixed bg-center bg-cover"
       style={{
         backgroundImage: "url('/images/hero/hero-bg.jpeg')",
       }}
@@ -25,6 +25,8 @@ export default function Hero() {
           </button>
         </div> */}
       </div>
+      {/* Bottom Fade */}
+      <div className="absolute bottom-0 left-0 h-48 w-full bg-gradient-to-b from-transparent to-black" />
     </section>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Search,
@@ -32,13 +32,31 @@ const navLinks = [
 
 export default function MainHeader() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div
-      className="absolute top-0 left-0 w-full z-50"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-[#0B1120]/95 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
+      }`}
       onMouseLeave={() => setActiveMenu(null)}
     >
-      <Container className="flex items-center justify-between py-5">
+      <Container
+        className={`flex items-center justify-between transition-all duration-500 ${
+          isScrolled ? "py-3" : "py-5"
+        }`}
+      >
 
         {/* Logo */}
         <div className="flex-shrink-0">
