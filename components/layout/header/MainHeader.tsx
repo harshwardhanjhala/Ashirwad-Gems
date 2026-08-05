@@ -12,7 +12,7 @@ import {
 
 import Logo from "@/components/common/Logo";
 import Container from "@/components/common/Container";
-import MegaMenu from "@/components/layout/header/MegaMenu";
+import GemstoneMegaMenu from "@/components/layout/header/GemstoneMegaMenu";
 
 const actions = [
   { icon: Search, label: "Search" },
@@ -31,11 +31,12 @@ const navLinks = [
 ];
 
 export default function MainHeader() {
-  const [showMegaMenu, setShowMegaMenu] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+
   return (
     <div
       className="absolute top-0 left-0 w-full z-50"
-      onMouseLeave={() => setShowMegaMenu(false)}
+      onMouseLeave={() => setActiveMenu(null)}
     >
       <Container className="flex items-center justify-between py-5">
 
@@ -45,17 +46,15 @@ export default function MainHeader() {
         </div>
 
         {/* Navigation */}
-        <nav
-          className="mx-auto flex justify-center"
-        >
+        <nav className="mx-auto flex justify-center">
           <div className="flex items-center gap-10">
             {navLinks.map((item) => (
               <div
                 key={item.name}
                 className="relative"
                 onMouseEnter={() => {
-                  if (item.name === "GEMSTONES") {
-                    setShowMegaMenu(true);
+                  if (item.dropdown) {
+                    setActiveMenu(item.name);
                   }
                 }}
               >
@@ -63,22 +62,16 @@ export default function MainHeader() {
                   className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37]"
                 >
                   {item.name}
-        
+
                   {item.dropdown && (
                     <ChevronDown
                       size={16}
-                      className="transition-transform duration-300 group-hover:rotate-180"
+                      className={`transition-transform duration-300 ${
+                        activeMenu === item.name ? "rotate-180" : ""
+                      }`}
                     />
                   )}
                 </button>
-        
-                {/* {item.name === "GEMSTONES" && (
-                  <MegaMenu
-                    isOpen={showMegaMenu}
-                    setIsOpen={setShowMegaMenu}
-                  />
-                )} */}
-
               </div>
             ))}
           </div>
@@ -110,11 +103,10 @@ export default function MainHeader() {
 
       </Container>
 
-      <MegaMenu
-        isOpen={showMegaMenu}
-        setIsOpen={setShowMegaMenu}
+      <GemstoneMegaMenu
+        isOpen={activeMenu === "GEMSTONES"}
+        setIsOpen={(open) => setActiveMenu(open ? "GEMSTONES" : null)}
       />
-
     </div>
   );
 }

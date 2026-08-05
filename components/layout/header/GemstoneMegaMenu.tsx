@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { gemstoneMenu } from "./megaMenuData";
+import { gemstoneMenu } from "./gemstoneMenuData";
 
-interface MegaMenuProps {
+interface GemstoneMegaMenuProps{
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function MegaMenu({
+export default function GemstoneMegaMenu({
   isOpen,
   setIsOpen,
-}: MegaMenuProps) {
+}: GemstoneMegaMenuProps) {
   if (!isOpen) return null;
 
   return (

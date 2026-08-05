@@ -11,7 +11,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center">
-        <div className="text-center text-white">
+        {/* <div className="text-center text-white">
           <h1 className="font-serif text-6xl font-semibold">
             Natural Gemstones
           </h1>
@@ -23,7 +23,7 @@ export default function Hero() {
           <button className="mt-10 rounded-full border border-[#D4AF37] px-8 py-3 text-[#D4AF37] transition hover:bg-[#D4AF37] hover:text-black">
             Explore Collection
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
