@@ -59,7 +59,7 @@ export default function MainHeader() {
                 }}
               >
                 <button
-                  className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37]"
+                  className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37] focus:outline-none focus:ring-0"
                 >
                   {item.name}
 
