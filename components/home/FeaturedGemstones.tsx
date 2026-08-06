@@ -1,4 +1,5 @@
 import Container from "@/components/common/Container";
+import GemstoneGrid from "./GemstoneGrid";
 
 export default function FeaturedGemstones() {
   return (
@@ -21,9 +22,14 @@ export default function FeaturedGemstones() {
 
         {/* Heading */}
         <div className="mt-8 text-center">
-          <h2 className="text-5xl font-semibold text-white lg:text-6xl">
+          <h2 className="text-3xl font-semibold tracking-wide text-white md:text-4xl lg:text-5xl">
             Explore Our Finest Collection
           </h2>
+        </div>
+
+        {/* Gemstone Cards */}   
+        <div className="mt-24">
+          <GemstoneGrid />
         </div>
 
       </Container>
