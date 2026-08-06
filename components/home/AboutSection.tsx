@@ -3,7 +3,7 @@ import Container from "@/components/common/Container";
 
 export default function AboutSection() {
   return (
-    <section className="bg-black py-40">
+    <section className="bg-black pt-40 pb-56">
       <Container>
 
         {/* Section Label */}
