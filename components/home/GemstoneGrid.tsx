@@ -48,12 +48,31 @@ const gemstones = [
   },
 ];
 
+const firstRow = gemstones.slice(0, 5);
+const secondRow = gemstones.slice(5);
+
 export default function GemstoneGrid() {
   return (
-    <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-      {gemstones.map((stone) => (
-        <GemstoneCard key={stone.name} {...stone} />
-      ))}
+    <div className="mx-auto w-full space-y-20">
+
+      {/* First Row */}
+      <div className="flex justify-between px-8">
+        {firstRow.map((stone) => (
+          <div key={stone.name} className="w-[220px] flex-shrink-0">
+            <GemstoneCard {...stone} />
+          </div>
+        ))}
+      </div>
+
+      {/* Second Row */}
+      <div className="flex justify-center gap-20">
+        {secondRow.map((stone) => (
+          <div key={stone.name} className="w-[220px] flex-shrink-0">
+            <GemstoneCard {...stone} />
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 }

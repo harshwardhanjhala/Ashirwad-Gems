@@ -15,28 +15,45 @@ export default function GemstoneCard({
   return (
     <Link
       href={href}
-      className="group block overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-b from-[#182133] to-[#101725] transition-all duration-500 hover:-translate-y-3 hover:border-[#D4AF37]/70 hover:shadow-[0_20px_60px_rgba(212,175,55,0.18)]"
+      className="group flex flex-col items-center transition-all duration-500 hover:-translate-y-3"
     >
       {/* Image */}
-      <div className="flex h-60 items-center justify-center overflow-hidden p-6">
-          <Image
-              src={image}
-              alt={name}
-              width={350}
-              height={250}
-              className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110"
-          />
+      <div className="relative flex h-64 w-full items-center justify-center">
+        <Image
+          src={image}
+          alt={name}
+          width={350}
+          height={250}
+          className="h-full w-full object-contain transition-all duration-700 group-hover:scale-110"
+        />
+
+        {/* Golden Glow */}
+        <div
+          className="
+            absolute
+            bottom-6
+            left-1/2
+            h-5
+            w-32
+            -translate-x-1/2
+            rounded-full
+            bg-[#D4AF37]/30
+            blur-2xl
+            opacity-0
+            transition-all
+            duration-500
+            group-hover:opacity-100
+          "
+        />
       </div>
 
       {/* Name */}
-      <div className="px-5 pb-6 pt-2 text-center">
-        <h3 className="text-xl font-semibold tracking-wide text-white transition-colors duration-300 group-hover:text-[#D4AF37]">
-          {name}
-        </h3>
+      <h3 className="mt-4 text-2xl font-semibold tracking-wide text-white transition-all duration-300 group-hover:text-[#D4AF37]">
+        {name}
+      </h3>
 
-        {/* Gold line */}
-        <div className="mx-auto mt-3 h-[2px] w-0 bg-[#D4AF37] transition-all duration-500 group-hover:w-14" />
-      </div>
+      {/* Gold underline */}
+      <div className="mt-3 h-[2px] w-0 bg-[#D4AF37] transition-all duration-500 group-hover:w-16" />
     </Link>
   );
 }
