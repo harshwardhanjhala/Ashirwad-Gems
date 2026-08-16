@@ -15,23 +15,23 @@ export default function GemstoneCard({
   return (
     <Link
       href={href}
-      className="group flex flex-col items-center transition-all duration-500 hover:-translate-y-3"
+      className="group flex w-full flex-col items-center transition-all duration-500 hover:-translate-y-3"
     >
       {/* Image */}
-      <div className="relative flex h-64 w-full items-center justify-center">
+      <div className="relative flex h-56 w-full items-center justify-center">
         <Image
           src={image}
           alt={name}
           width={350}
           height={250}
-          className="h-full w-full object-contain transition-all duration-700 group-hover:scale-110"
+          className="h-[220px] w-[240px] object-contain transition-transform duration-700 group-hover:scale-110"
         />
 
         {/* Golden Glow */}
         <div
           className="
             absolute
-            bottom-6
+            bottom-3
             left-1/2
             h-5
             w-32
@@ -48,7 +48,7 @@ export default function GemstoneCard({
       </div>
 
       {/* Name */}
-      <h3 className="mt-4 text-2xl font-semibold tracking-wide text-white transition-all duration-300 group-hover:text-[#D4AF37]">
+      <h3 className="mt-5 text-2xl font-semibold tracking-wide text-white transition-colors duration-300 group-hover:text-[#D4AF37]">
         {name}
       </h3>
 

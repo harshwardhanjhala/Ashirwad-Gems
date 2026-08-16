@@ -56,18 +56,24 @@ export default function GemstoneGrid() {
     <div className="mx-auto w-full space-y-20">
 
       {/* First Row */}
-      <div className="flex justify-between px-8">
+      <div className="flex justify-center gap-16">
         {firstRow.map((stone) => (
-          <div key={stone.name} className="w-[220px] flex-shrink-0">
+          <div
+            key={stone.name}
+            className="w-[200px] flex-shrink-0"
+          >
             <GemstoneCard {...stone} />
           </div>
         ))}
       </div>
 
       {/* Second Row */}
-      <div className="flex justify-center gap-20">
+      <div className="flex justify-center gap-16">
         {secondRow.map((stone) => (
-          <div key={stone.name} className="w-[220px] flex-shrink-0">
+          <div
+            key={stone.name}
+            className="w-[200px] flex-shrink-0"
+          >
             <GemstoneCard {...stone} />
           </div>
         ))}
