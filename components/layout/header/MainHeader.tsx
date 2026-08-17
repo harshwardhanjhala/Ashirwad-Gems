@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import {
   Search,
@@ -76,20 +77,29 @@ export default function MainHeader() {
                   }
                 }}
               >
-                <button
-                  className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37] focus:outline-none focus:ring-0"
-                >
-                  {item.name}
-
-                  {item.dropdown && (
-                    <ChevronDown
-                      size={16}
-                      className={`transition-transform duration-300 ${
-                        activeMenu === item.name ? "rotate-180" : ""
-                      }`}
-                    />
-                  )}
-                </button>
+                {item.name === "HOME" ? (
+                  <Link
+                    href="/"
+                    className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37]"
+                  >
+                    HOME
+                  </Link>
+                ) : (
+                  <button
+                    className="group flex items-center gap-1 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:text-[#D4AF37] focus:outline-none focus:ring-0"
+                  >
+                    {item.name}
+                
+                    {item.dropdown && (
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform duration-300 ${
+                          activeMenu === item.name ? "rotate-180" : ""
+                        }`}
+                      />
+                    )}
+                  </button>
+                )}
               </div>
             ))}
           </div>
